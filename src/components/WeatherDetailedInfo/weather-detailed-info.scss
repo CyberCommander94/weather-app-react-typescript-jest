@@ -1,0 +1,23 @@
+.weather-detailed-info {
+  width: 30%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .30);
+  backdrop-filter: blur(30px);
+  border-left: 4px solid rgba(255, 255, 255, 0.20);
+  color: #ffffff;
+
+  &__search-input-wrapper {
+    padding: 10px 30px 0 30px;
+  }
+
+  &__items-wrapper {
+    width: 100%;
+  }
+
+  &__weather-description {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 50px 0 30px 0;
+  }
+}
