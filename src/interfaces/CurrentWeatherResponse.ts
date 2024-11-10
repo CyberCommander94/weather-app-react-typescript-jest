@@ -36,7 +36,7 @@ export interface Coordinates {
 
 export interface CurrentWeatherResponse {
   coord: Coordinates;
-  weather: WeatherDescription[];
+  weather: Array<WeatherDescription>;
   base: string;
   main: MainWeather;
   visibility: number;

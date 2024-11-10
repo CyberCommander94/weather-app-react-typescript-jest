@@ -5,10 +5,32 @@
   box-shadow: none;
   outline: none;
   border: none;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
   color: #ffffff;
   font-size: 16px;
   line-height: 50px;
   padding: 0 50px 0 10px;
   font-weight: 300;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
+  }
+}
+
+.search-input-wrapper {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    background-image: url("../../assets/images/icons/search.svg");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }

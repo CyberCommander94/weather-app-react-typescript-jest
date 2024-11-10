@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
 
 const api = {
   get: (endpoint: string, params = {}) => {
-    return axiosInstance.get(endpoint, { params: { appid: 'b7315577fa190000af08be923e6cb02d', units: 'metric', lang: 'en', ...params } });
+    return axiosInstance.get(endpoint, { params: { appid: process.env.REACT_APP_WEARTER_API_KEY, units: 'metric', lang: 'en', ...params } });
   },
 };
 

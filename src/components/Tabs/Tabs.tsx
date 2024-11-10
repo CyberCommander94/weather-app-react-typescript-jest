@@ -1,11 +1,11 @@
-import "./info-tabs.scss"
+import "./tabs.scss"
 import { useState, ReactNode } from 'react';
 
-interface InfoTabsProps {
+interface TabsProps {
   children: ReactNode[];
 }
 
-const InfoTabs: React.FC<InfoTabsProps> = ({ children }) => {
+const Tabs: React.FC<TabsProps> = ({ children }) => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const handleTabClick = (index: number) => {
@@ -13,23 +13,23 @@ const InfoTabs: React.FC<InfoTabsProps> = ({ children }) => {
   };
 
   return (
-    <div>
-      <div className="tabs">
+    <div className="tabs">
+      <div className="tabs__buttons">
         {children.map((tab, index) => (
           <button
             key={index}
             className={activeTab === index ? 'active' : ''}
             onClick={() => handleTabClick(index)}
           >
-            {tab.props.label}
+            {(tab as React.ReactElement).props.label}
           </button>
         ))}
       </div>
-      <div className="tab-content">
+      <div className="tabs__content">
         {children[activeTab]}
       </div>
     </div>
   );
 }
 
-export default InfoTabs;
+export default Tabs;

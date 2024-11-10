@@ -7,10 +7,6 @@ body {
   margin: 0;
 }
 
-body {
-  background-color: #616161 !important;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -19,6 +15,37 @@ a {
 * {
   box-sizing: border-box;
   font-family: "Roboto", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
+}
+
+.Toastify__toast--error {
+  background-color: #DD3B11 !important;
+  color: white !important;
+}
+
+.Toastify__toast-body {
+  font-family:  "Roboto", Arial, sans-serif;
+  font-weight: 300;
+
+  div::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.Toastify__toast-icon {
+  svg {
+    fill: white !important;
+  }
+}
+
+.Toastify__close-button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  opacity: 1 !important;
+
+  svg {
+    fill: white !important;
+  }
 }

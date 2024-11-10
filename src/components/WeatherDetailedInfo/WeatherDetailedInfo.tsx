@@ -1,38 +1,46 @@
-import "./weather-detailed-info.scss"
-import SearchInput from '../SearchInput/SearchInput';
-import InfoTabs from '../InfoTabs/InfoTabs';
-import WeatherDetailedInfoItem from './WeatherDetailedInfoItem/WeatherDetailedInfoItem';
-import { MainWeather } from '../../interfaces/CurrentWeatherResponse'
+import "./weather-detailed-info.scss";
+import SearchInput from "../SearchInput/SearchInput";
+import Tabs from "../Tabs/Tabs";
+import MainWeatherTab from "./MainWeatherTab/MainWeatherTab";
+import WeatherForecastTab from "./WeatherForecastTab/WeatherForecastTab";
+import { MainWeather } from "../../interfaces/CurrentWeatherResponse";
+import { WeatherForecastResponse } from "../../interfaces/WeatherForecastResponse";
 
 interface WeatherDetailedInfoData extends MainWeather {
-  wind: number;
-  clouds: number;
+  wind: number | undefined;
+  clouds: number | undefined;
 }
 
 interface WeatherDetailedInfoProps {
-  currentWeather: WeatherDetailedInfoData;
-  description: string;
+  currentWeather: WeatherDetailedInfoData | null;
+  weatherForecast: WeatherForecastResponse | null;
+  handleInputChange: (value: string) => void;
 }
 
-const WeatherDetailedInfo: React.FC<WeatherDetailedInfoProps> = ({ currentWeather, description }) => {
-  const WeatherDetailedInfoItems = Object.entries(currentWeather).map((prop) =>
-    <WeatherDetailedInfoItem key={prop[0]} property={prop[0]} value={prop[1]} />
-  );
-
+const WeatherDetailedInfo: React.FC<WeatherDetailedInfoProps> = ({
+  currentWeather,
+  weatherForecast,
+  handleInputChange,
+}) => {
   return (
-    <div className="weather-detailed-info">
+    <div className={`weather-detailed-info ${currentWeather && weatherForecast ? " with-background" : ""}`}>
       <div className="weather-detailed-info__search-input-wrapper">
-        <SearchInput></SearchInput>
-        <InfoTabs></InfoTabs>
-        <div className="box details">
-          <p className="weather-detailed-info__weather-description">{description}</p>
-          <div className="weather-detailed-info__items-wrapper">
-            {WeatherDetailedInfoItems}
-          </div>
-        </div>
+        <SearchInput onChange={handleInputChange}></SearchInput>
       </div>
+      {currentWeather && weatherForecast && (
+        <Tabs>
+          <MainWeatherTab
+            currentWeather={currentWeather}
+            label="Current weather"
+          ></MainWeatherTab>
+          <WeatherForecastTab
+            weatherForecast={weatherForecast}
+            label="Weather forecast"
+          ></WeatherForecastTab>
+        </Tabs>
+      )}
     </div>
   );
-}
+};
 
 export default WeatherDetailedInfo;
