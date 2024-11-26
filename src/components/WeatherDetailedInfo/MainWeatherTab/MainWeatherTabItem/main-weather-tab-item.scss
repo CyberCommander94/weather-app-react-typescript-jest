@@ -1,0 +1,30 @@
+.main-weather-tab-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  box-sizing: content-box;
+  padding: 4px 0;
+  color: #ffffff;
+  font-size: 14px;
+  border-bottom:  1px solid rgba(255, 255, 255, 0.20);
+
+  &__value-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-end;
+  }
+
+  &__value {
+    margin-right: 15px;
+  }
+
+  &__name {
+    font-weight: 300;
+  }
+
+  &__unit {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+}

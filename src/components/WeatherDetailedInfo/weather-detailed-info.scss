@@ -1,0 +1,16 @@
+.weather-detailed-info {
+  width: 30%;
+  height: 100vh;
+  color: #ffffff;
+  padding: 10px 20px 0 20px;
+
+  &.with-background {
+    background-color: rgba(0, 0, 0, .30);
+    backdrop-filter: blur(30px);
+    border-left: 4px solid rgba(255, 255, 255, 0.20);
+  }
+
+  &__search-input-wrapper {
+    margin-bottom: 20px;
+  }
+}
